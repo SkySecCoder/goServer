@@ -1,0 +1,45 @@
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"io/ioutil"
+)
+
+func main() {
+	http.HandleFunc("/", echoHandler)
+	http.HandleFunc("/api", apiHandler)
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		panic(err)
+	}
+}
+
+func echoHandler(w http.ResponseWriter, r *http.Request) {
+	path := r.URL.Path
+	message := ""
+	if path == "/echo" {
+		fmt.Println("[+] Request at : "+path)
+		message = "[+] Hello from server...\n"
+	} else {
+		fmt.Println("[+] Request at : "+path)
+		message = "[+] Hello, welcome to serve.go...\n"
+		message += " |- a small server for testing scripts...\n"
+		message += " |- more can be added here later...\n"
+	}
+	w.Write([]byte(message))
+}
+
+func apiHandler(w http.ResponseWriter, r *http.Request) {
+	message := ""
+	path := r.URL.Path
+	fmt.Println("[+] Request at : "+path)
+
+	if r.Method == http.MethodGet {
+		message = "[-] Sorry only accept POST request on /api ...\n"
+	} else {
+		body,_ := ioutil.ReadAll(r.Body)
+		message = string(body) + "\n"
+	}
+
+	w.Write([]byte(message))
+}
