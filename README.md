@@ -1,3 +1,3 @@
 # goServer
 
-Simple go based server for basic hosting anf testing.
+Simple go based server for basic hosting and testing.
