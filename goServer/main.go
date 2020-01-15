@@ -9,6 +9,11 @@ import (
 )
 
 func main() {
+	formatter := &log.TextFormatter{
+		FullTimestamp: true,
+	}
+	log.SetFormatter(formatter)
+
 	fmt.Println(hello.Hello())
 	http.HandleFunc("/", echoHandler)
 	http.HandleFunc("/api", apiHandler)
