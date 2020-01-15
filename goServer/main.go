@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"io/ioutil"
+	log "github.com/sirupsen/logrus"
 )
 
 func main() {
@@ -18,7 +19,7 @@ func echoHandler(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
 	message := ""
 	if path == "/echo" {
-		fmt.Println("[+] Request at : "+path)
+		log.Info("[+] Request at : "+path)
 		message = "[+] Hello from server...\n"
 	} else {
 		fmt.Println("[+] Request at : "+path)
@@ -32,7 +33,7 @@ func echoHandler(w http.ResponseWriter, r *http.Request) {
 func apiHandler(w http.ResponseWriter, r *http.Request) {
 	message := ""
 	path := r.URL.Path
-	fmt.Println("[+] Request at : "+path)
+	log.Info("[+] Request at : "+path)
 
 	if r.Method == http.MethodGet {
 		message = "[-] Sorry only accept POST request on /api ...\n"
