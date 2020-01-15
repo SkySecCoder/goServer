@@ -5,9 +5,11 @@ import (
 	"net/http"
 	"io/ioutil"
 	log "github.com/sirupsen/logrus"
+	"github.com/SkySecCoder/goServer/goServer/banner"
 )
 
 func main() {
+	fmt.Println(hello.Hello())
 	http.HandleFunc("/", echoHandler)
 	http.HandleFunc("/api", apiHandler)
 	if err := http.ListenAndServe(":8080", nil); err != nil {
@@ -22,7 +24,7 @@ func echoHandler(w http.ResponseWriter, r *http.Request) {
 		log.Info("[+] Request at : "+path)
 		message = "[+] Hello from server...\n"
 	} else {
-		fmt.Println("[+] Request at : "+path)
+		log.Info("[+] Request at : "+path)
 		message = "[+] Hello, welcome to serve.go...\n"
 		message += " |- a small server for testing scripts...\n"
 		message += " |- more can be added here later...\n"
