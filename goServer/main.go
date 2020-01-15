@@ -34,6 +34,7 @@ func echoHandler(w http.ResponseWriter, r *http.Request) {
 		message += " |- a small server for testing scripts...\n"
 		message += " |- more can be added here later...\n"
 	}
+
 	w.Write([]byte(message))
 }
 
