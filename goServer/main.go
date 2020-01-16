@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	log "github.com/sirupsen/logrus"
 	"github.com/SkySecCoder/goServer/goServer/banner"
+	"github.com/SkySecCoder/goServer/goServer/api"
 )
 
 func main() {
@@ -15,14 +16,14 @@ func main() {
 	log.SetFormatter(formatter)
 
 	fmt.Println(hello.Hello())
-	http.HandleFunc("/", echoHandler)
+	http.HandleFunc("/", rawGet.RawGet())
 	http.HandleFunc("/api", apiHandler)
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}
 }
 
-func echoHandler(w http.ResponseWriter, r *http.Request) {
+/*func echoHandler(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
 	message := ""
 	if path == "/echo" {
@@ -36,7 +37,7 @@ func echoHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Write([]byte(message))
-}
+}*/
 
 func apiHandler(w http.ResponseWriter, r *http.Request) {
 	message := ""
