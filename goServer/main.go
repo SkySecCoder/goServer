@@ -7,6 +7,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/SkySecCoder/goServer/goServer/banner"
 	"github.com/SkySecCoder/goServer/goServer/api"
+	"github.com/SkySecCoder/goServer/goServer/base"
 )
 
 func main() {
@@ -16,8 +17,8 @@ func main() {
 	log.SetFormatter(formatter)
 
 	fmt.Println(hello.Hello())
-	http.HandleFunc("/", rawGet.RawGet())
-	http.HandleFunc("/api", apiHandler)
+	http.HandleFunc("/", base.Base)
+	http.HandleFunc("/api", rawPost.RawPost)
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}
@@ -39,7 +40,7 @@ func main() {
 	w.Write([]byte(message))
 }*/
 
-func apiHandler(w http.ResponseWriter, r *http.Request) {
+/*func apiHandler(w http.ResponseWriter, r *http.Request) {
 	message := ""
 	path := r.URL.Path
 	log.Info("[+] Request at : "+path)
@@ -52,4 +53,4 @@ func apiHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Write([]byte(message))
-}
+}*/
