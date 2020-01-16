@@ -2,6 +2,7 @@ package rawGet
 
 import (
 	"net/http"
+	log "github.com/sirupsen/logrus"
 )
 
 func RawGet(w http.ResponseWriter, r *http.Request) {
