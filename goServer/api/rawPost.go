@@ -3,6 +3,7 @@ package rawGet
 import (
 	"net/http"
 	log "github.com/sirupsen/logrus"
+	"io/ioutil"
 )
 
 func RawPost(w http.ResponseWriter, r *http.Request) {

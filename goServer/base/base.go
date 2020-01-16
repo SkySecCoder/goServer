@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func Base(w http.RequestWriter, r *http.Request) {
+func Base(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
 	log.Info("[+] "+r.Method+" Request at : "+path)
 	message := "<h1>Placeholder goServer main page...</h1>"
