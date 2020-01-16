@@ -9,7 +9,7 @@ import (
 func RawPost(w http.ResponseWriter, r *http.Request) {
 	message := ""
 	path := r.URL.Path
-	log.Info("[+] Request at : "+path)
+	log.Info("[+] "+r.Method+" Request at : "+path)
 
 	if r.Method == http.MethodGet {
 		message = "[-] Sorry only accept POST request on /api ...\n"
