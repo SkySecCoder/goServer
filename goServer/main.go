@@ -34,7 +34,6 @@ func echoHandler(w http.ResponseWriter, r *http.Request) {
 		message += " |- a small server for testing scripts...\n"
 		message += " |- more can be added here later...\n"
 	}
-
 	w.Write([]byte(message))
 }
 
@@ -49,6 +48,5 @@ func apiHandler(w http.ResponseWriter, r *http.Request) {
 		body,_ := ioutil.ReadAll(r.Body)
 		message = string(body) + "\n"
 	}
-
 	w.Write([]byte(message))
 }
