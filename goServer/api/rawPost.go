@@ -1,4 +1,4 @@
-package RawPost
+package rawPost
 
 import (
 	"net/http"
