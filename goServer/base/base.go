@@ -4,6 +4,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"net/http"
 	"io/ioutil"
+	"os"
 )
 
 func Base(w http.ResponseWriter, r *http.Request) {
