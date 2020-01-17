@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 	log "github.com/sirupsen/logrus"
-	"github.com/SkySecCoder/goServer/goServer/banner"
-	"github.com/SkySecCoder/goServer/goServer/api"
-	"github.com/SkySecCoder/goServer/goServer/base"
+	"goServer/banner"
+	"goServer/api"
+	"goServer/base"
 )
 
 func main() {
