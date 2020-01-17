@@ -14,6 +14,7 @@ RUN cd goServer && go build main.go
 
 FROM alpine:latest AS release
 COPY --from=base /go/goServer/main /
+COPY --from=base /go/goServer/base/base.html /
 RUN chmod +x /main
 
 WORKDIR /

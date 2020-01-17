@@ -17,3 +17,6 @@
 # Mac specific
 **/.DS_STORE
 .DS_STORE
+
+# Ignore local tests
+tests/*
