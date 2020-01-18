@@ -17,7 +17,7 @@ func main() {
 
 	fmt.Println(hello.Hello())
 	http.HandleFunc("/", base.Base)
-	http.HandleFunc("/api", rawPost.RawPost)
+	http.HandleFunc("/api", api.RequestHandler)
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}
