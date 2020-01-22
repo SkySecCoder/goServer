@@ -4,7 +4,6 @@ import (
 	"net/http"
 	"io/ioutil"
 	"encoding/json"
-	log "github.com/sirupsen/logrus"
 )
 
 type Response struct {
@@ -20,8 +19,6 @@ type ResponseError struct {
 func EchoPost(w http.ResponseWriter, r *http.Request) []byte {
 	var returnData Response
 	var data []byte
-
-	log.Info("[+] echoPost handling request...")
 
 	body,_ := ioutil.ReadAll(r.Body)
 	var checker map[string]interface{}

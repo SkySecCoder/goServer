@@ -2,7 +2,6 @@ package api
 
 import (
 	"net/http"
-	log "github.com/sirupsen/logrus"
 	"encoding/json"
 )
 
@@ -12,7 +11,6 @@ type GenericResponse struct {
 }
 
 func RawGet(w http.ResponseWriter, r *http.Request) []byte {
-	log.Info("[+] rawGet handling request...")
 	var returnData GenericResponse
 
 	returnData.Path = r.URL.Path
