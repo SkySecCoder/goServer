@@ -7,11 +7,10 @@ import (
 	"goServer/banner"
 	"goServer/api"
 	"goServer/base"
+	"goServer/logs"
 	"os"
 	"io"
 )
-
-//var logs []string
 
 func main() {
 	logFile, err := os.OpenFile("goServer.log", os.O_WRONLY | os.O_CREATE, 0755)
@@ -29,7 +28,7 @@ func main() {
 	fmt.Println(hello.Hello())
 	http.HandleFunc("/", base.Base)
 	http.HandleFunc("/api", api.RequestHandler)
-	//http.HandleFunc("/log", log.RequestHandler)
+	http.HandleFunc("/logs", logs.RequestHandler)
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}
