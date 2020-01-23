@@ -3,13 +3,14 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
+	"io"
+	"github.com/gorilla/mux"
 	log "github.com/sirupsen/logrus"
 	"goServer/banner"
 	"goServer/api"
 	"goServer/base"
 	"goServer/logs"
-	"os"
-	"io"
 )
 
 func main() {
@@ -26,9 +27,14 @@ func main() {
 	log.SetOutput(multiWriter)
 
 	fmt.Println(hello.Hello())
-	http.HandleFunc("/", base.Base)
-	http.HandleFunc("/api", api.RequestHandler)
-	http.HandleFunc("/logs", logs.RequestHandler)
+
+	router := mux.NewRouter()
+	router.HandleFunc("/", base.Base)
+	router.HandleFunc("/api", api.RequestHandler)
+	router.HandleFunc("/api/{key}", api.RequestHandler)
+	router.HandleFunc("/logs", logs.RequestHandler)
+	http.Handle("/", router)
+
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}
