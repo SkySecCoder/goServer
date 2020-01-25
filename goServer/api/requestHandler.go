@@ -10,7 +10,7 @@ import (
 
 func RequestHandler(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
-	log.Info("[+] "+r.Method+" Request at : "+path)
+	log.Info("[+] "+r.Method+" Request from "+r.RemoteAddr+" at : "+path)
 	var response []byte
 
 	requestVars := mux.Vars(r)
