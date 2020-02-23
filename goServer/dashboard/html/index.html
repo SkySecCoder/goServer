@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Home NAS</title>
+		<meta charset="utf-8" />
+		<!--meta name="viewport" content="width=device-width, initial-scale=1" /-->
+		<script src="./js/jquery-3.3.1.min.js"></script>
+		<link rel="stylesheet" href="../css/main.css" />
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	    <script type="text/javascript">
+	      google.charts.load('current', {'packages':['corechart']});
+	      google.charts.setOnLoadCallback(drawChart);
+
+	      function drawChart() {
+	        var data = google.visualization.arrayToDataTable([
+	          ['Year', 'CPU', 'Memory'],
+	          ['2013',  1000,      400],
+	          ['2014',  1170,      460],
+	          ['2015',  660,       1120],
+	          ['2016',  1030,      540]
+	        ]);
+
+	        var options = {
+	          title: 'CPU/Memory',
+	          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+	          vAxis: {minValue: 0},
+	          backgroundColor: '#2d3456',
+	          titleTextStyle: {color: 'white'},
+	          hAxis: {title: 'Time', textStyle: {color: 'white'}, titleTextStyle: {color: 'white',italic: false}},
+	          vAxis: {title: 'Resource', textStyle: {color: 'white'}, titleTextStyle: {color: 'white',italic: false}},
+	          annotations: {textStyle: {color: 'white'}},
+	          legend: {textStyle: {color: 'white'}}
+	        };
+
+	        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+	        chart.draw(data, options);
+	      }
+    	</script>
+    	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	    <script type="text/javascript">
+	      google.charts.load('current', {'packages':['corechart']});
+	      google.charts.setOnLoadCallback(drawChart);
+
+	      function drawChart() {
+
+	        var data = google.visualization.arrayToDataTable([
+	          ['Task', 'File access'],
+	          ['/var/log',     11],
+	          ['/etc/passwd',      2],
+	          ['/etc/shadow',  2],
+	          ['/etc/hosts', 2],
+	          ['/home/ec2-user',    7]
+	        ]);
+
+	        var options = {
+	          title: 'Metrics',
+	          backgroundColor: '#2d3456',
+	          titleTextStyle: {color: 'white'},
+	          color: ['white'],
+	          legend: {textStyle: {color: 'white'}},
+	          pieHole: 0.4,
+	        };
+
+	        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+	        chart.draw(data, options);
+	    }
+		</script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Director (Year)',  'Rotten Tomatoes', 'IMDB'],
+          ['Alfred Hitchcock (1935)', 8.4,         7.9],
+          ['Ralph Thomas (1959)',     6.9,         6.5],
+          ['Don Sharp (1978)',        6.5,         6.4],
+          ['James Hawes (2008)',      4.4,         6.2]
+        ]);
+
+        var options = {
+          title: 'The decline of \'The 39 Steps\'',
+          vAxis: {title: 'Accumulated Rating'},
+          isStacked: true,
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+	          vAxis: {minValue: 0},
+	          backgroundColor: '#2d3456',
+	          titleTextStyle: {color: 'white'},
+	          hAxis: {title: 'Time', textStyle: {color: 'white'}, titleTextStyle: {color: 'white',italic: false}},
+	          vAxis: {title: 'Resource', textStyle: {color: 'white'}, titleTextStyle: {color: 'white',italic: false}},
+	          annotations: {textStyle: {color: 'white'}},
+	          legend: {textStyle: {color: 'white'}}
+        };
+
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('step_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+	</head>
+	<body style="overflow: hidden;">
+		<div id="particles-js">
+			<div class="searchBar">
+				<input type="text" name="search" class="round" placeholder="Search..">
+			</div>
+			<div class="sidenavbar">
+				<div class="sidenavprofilebox">
+					<div>
+						<img class="avatar" src="../images/avatar2.png">
+					</div>
+				</div>
+				<div class="minisidenavoption"></div>
+				<div class="sidenavoption">
+					<table style="height:100%; margin-left:28%; margin-top:0%; margin-right:0%; z-index:4;width:75%;">
+						<tr>
+						    <td><p style="color:white; vertical-align:middle;"><a href="./photos.html" style="text-decoration:none; color:white; display: block; width:96%;"><img src="../images/attachment.png" style="vertical-align:middle; max-width:20%; width:auto; height:auto;">&emsp;&emsp;Photos</a></p></td>
+						</tr>
+						<tr>
+						    <td><p style="color:white; vertical-align:middle;"><a href="./music.html" style="text-decoration:none; color:white; display: block; width:96%;"><img src="../images/browser.png" style="vertical-align:middle; max-width:20%; width:auto; height:auto;">&emsp;&emsp;Music</a></p></td>
+						</tr>
+						<tr>
+						    <td><p style="color:white; vertical-align:middle;"><a href="./movies.html" style="text-decoration:none; color:white; display: block; width:96%;"><img src="../images/cancel.png" style="vertical-align:middle; max-width:20%; width:auto; height:auto;">&emsp;&emsp;Movies</a></p></td>
+						</tr>
+						<tr>   
+						    <td><p style="color:white; vertical-align:middle;"><a href="./index.html" style="text-decoration:none; color:white; display: block; width:96%;"><img src="../images/document-3.png" style="vertical-align:middle; max-width:20%; width:auto; height:auto;">&emsp;&emsp;Settings</a></p></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<!--My content-->
+	 		<div class="mainDiv">
+	 			<b class="pageHeader">
+	 				<font size="6" style="margin-left:0%;">
+	 					Dashboard
+	 				</font>
+	 			</b>
+	 			<br /><br />
+	 			<div class="mainCard">
+	 				<div id="chart_div" style="width: 100%; height: 100%; "></div>
+	 			</div>
+	 			<div class="subCard" style="float: left;">
+	 				<div id="step_chart" style="width: 100%; height: 100%;"></div>
+	 			</div>
+	 			
+	 			<div class="subCard" style="float: right;">
+	 				<div id="piechart" style="width: 100%; height: 100%;"></div>
+	 			</div>
+	 			<div class="subCard" style="float: left;">
+	 				
+	 			</div>
+	 			
+	 			<div class="subCard" style="float: right;">
+	 				
+	 			</div>		
+	 		</div>
+	 		
+			<!--My content-->
+		</div>
+
+
+
+		<!--My script-->
+	</body>
+</html>

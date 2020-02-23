@@ -1,0 +1,179 @@
+html,body { 
+	width:100%;
+	height:100%;
+	background:#232741;
+	font-family: Arial, sans-serif;
+}
+#particles-js{
+  width: 100%;
+  height: 100%;
+  background-color: #232741;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;		  
+}
+.mainCard {
+	background-color: #2d3456; 
+	height: 50%; 
+	width: 100%; 
+	margin-top: 0%; 
+	margin-left: 0%; 
+	margin-right: 0%;
+}
+.subCard {
+	background-color: #2d3456;
+	height:45%;
+	width: 49%;
+	margin-top: 2%; 
+}
+.sidenavbar {
+	position: absolute;
+	height: 100%;
+	width:20%;
+	top: 0px;
+	left: -5%;
+	background-color: #111;
+	border-radius:1%;
+}
+.sidenavprofilebox {
+	top:0px;
+	width: 100%;
+	height: 25%;
+	position: absolute;
+	left: 0px;
+	background-color: #7E63C4;
+	padding-bottom: 10%;
+	z-index: 5;
+}
+.sidenavoption {
+	/*background-color: blue;*/
+	position: absolute;
+	/*left: 0px;*/
+	margin-left: 0%;
+	margin-right: 0%;
+	/*width: 70%;*/
+	top: 35%;
+	width: 100%;
+	z-index: 5;
+	bottom: 25%;
+}
+/*Little purple line next to options*/
+.minisidenavoption {
+	position: absolute;
+	/*left: 0px;*/
+	margin-left: 0%;
+	margin-right: 0%;
+	/*width: 70%;*/
+	top: 0%;
+	width: 48%;
+	z-index: 4;
+	bottom: 0%;
+	background-color: #7E63C4;
+}
+.avatar {
+	border-radius:50%; 
+	margin-top: 15%;
+	margin-left:40%; 
+	margin-right:25%;
+	border:3px solid white;
+	height: 40%;
+	width: 40%;
+}
+/*photos CSS*/
+.mainDiv {
+	margin-top: 6%;
+	margin-left: 16%;
+	height: 90%;
+	/*background-color: blue; */
+	width: 83%;
+	margin-right: 1%;
+	/*z-index: -5;*/
+	overflow: scroll;
+	position: absolute;
+	z-index: 3;
+}
+.row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+/* Create four equal columns that sits next to each other */
+.column {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 24%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+/*Search Bar*/
+.searchBar {
+    position: absolute;
+    width: 25%;
+    height: 30px; /*was 30px*/
+    margin-left:17%; 
+    margin-top: 3%;
+    padding-bottom: 20%;
+    /*border-bottom: 1px solid rgba(255,255,255,.25);*/
+    background-color: #232741; /*Bg color*/
+    z-index: -20;
+}
+.round {
+	width: 100%;
+	height: 5%;
+    border-radius: 15px;
+    border: 1px #232741 solid; /*BG color*/
+    padding: 5px 5px 5px 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: #353b62; /*lighter bg color*/
+    color: white;
+}
+/**/
+/*Preview of selected picture*/
+.imagepreviewstyle {
+	color:white;
+	display:none; 
+	z-index: 10; 
+	margin-top:0%; 
+	margin-left:0%;
+	height:100%; 
+	width:100%; 
+	position: absolute;
+	background-image: url("../imagepreviewbgimage.png");
+}
+/**/
+/*Page header present under mainDiv*/
+.pageHeader {
+	color: white;
+	margin-left: 1%;
+	height: 100%;
+}
+/**/
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+/**/
