@@ -13,9 +13,13 @@ RUN cd goServer && go build main.go
 # ----------------------------------------------------
 
 FROM alpine:latest AS release
+RUN adduser -D goUser
+
 COPY --from=base /go/goServer/main /
 COPY --from=base /go/goServer/base/base.html /
-RUN chmod +x /main
+RUN chmod +x /main && chown goUser:goUser /main && touch goServer.log && chown goUser:goUser goServer.log
+
+USER goUser
 
 WORKDIR /
 ENTRYPOINT ["/main"]
