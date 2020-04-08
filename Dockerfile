@@ -17,6 +17,7 @@ RUN adduser -D goUser
 
 COPY --from=base /go/goServer/main /
 COPY --from=base /go/goServer/base/base.html /
+COPY --from=base /go/goServer/tls /tls
 RUN chmod +x /main && chown goUser:goUser /main && touch goServer.log && chown goUser:goUser goServer.log
 
 USER goUser
