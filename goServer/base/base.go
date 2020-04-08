@@ -24,5 +24,10 @@ func Base(w http.ResponseWriter, r *http.Request) {
 		message = string(data)
 	}
 
+	/*
+		Doing the following:
+		- Setting HSTS header
+	*/
+	w.Header().Add("Strict-Transport-Security", "max-age=63072000; includeSubDomains")
 	w.Write([]byte(message))
 }
