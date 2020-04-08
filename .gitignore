@@ -18,5 +18,8 @@
 **/.DS_STORE
 .DS_STORE
 
+# Ignore certificate folder
+*/tls/*
+
 # Ignore local tests
 tests/*
