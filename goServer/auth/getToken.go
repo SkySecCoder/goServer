@@ -1,10 +1,10 @@
 package auth
 
 import (
-	"net/http"
 	jwt "github.com/dgrijalva/jwt-go"
-	"time"
 	log "github.com/sirupsen/logrus"
+	"net/http"
+	"time"
 )
 
 func GetToken(w http.ResponseWriter, r *http.Request) []byte {

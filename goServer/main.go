@@ -6,6 +6,7 @@ import (
 	"github.com/gorilla/mux"
 	log "github.com/sirupsen/logrus"
 	"goServer/api"
+	"goServer/auth"
 	"goServer/banner"
 	"goServer/base"
 	"goServer/logs"
@@ -13,7 +14,6 @@ import (
 	"net/http"
 	"os"
 	"time"
-	"goServer/auth"
 )
 
 func main() {

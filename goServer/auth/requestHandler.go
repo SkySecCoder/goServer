@@ -1,8 +1,8 @@
 package auth
 
 import (
-	"net/http"
 	"encoding/json"
+	"net/http"
 )
 
 func RequestHandler(w http.ResponseWriter, r *http.Request) {
