@@ -1,10 +1,10 @@
 package logs
 
 import (
-	"os"
+	log "github.com/sirupsen/logrus"
 	"io/ioutil"
 	"net/http"
-	log "github.com/sirupsen/logrus"
+	"os"
 )
 
 func LogGet(w http.ResponseWriter, r *http.Request) []byte {
@@ -13,10 +13,10 @@ func LogGet(w http.ResponseWriter, r *http.Request) []byte {
 	file, err := os.Open("goServer.log")
 	if err != nil {
 		data = []byte(err.Error())
-		log.Error("[-] "+err.Error())
+		log.Error("[-] " + err.Error())
 		return data
 	}
-	data,_ = ioutil.ReadAll(file)
+	data, _ = ioutil.ReadAll(file)
 	file.Close()
 
 	return data

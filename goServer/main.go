@@ -1,18 +1,19 @@
 package main
 
 import (
+	"crypto/tls"
 	"fmt"
-	"net/http"
-	"os"
-	"io"
 	"github.com/gorilla/mux"
 	log "github.com/sirupsen/logrus"
-	"goServer/banner"
 	"goServer/api"
+	"goServer/banner"
 	"goServer/base"
 	"goServer/logs"
-	"crypto/tls"
+	"io"
+	"net/http"
+	"os"
 	"time"
+	"goServer/auth"
 )
 
 func main() {
@@ -20,7 +21,7 @@ func main() {
 	/*
 		Setting logging
 	*/
-	logFile, err := os.OpenFile("goServer.log", os.O_WRONLY | os.O_CREATE, 0755)
+	logFile, err := os.OpenFile("goServer.log", os.O_WRONLY|os.O_CREATE, 0755)
 	multiWriter := io.MultiWriter(os.Stdout, logFile)
 	if err != nil {
 		panic(err)
@@ -54,6 +55,7 @@ func main() {
 	router.HandleFunc("/", base.Base)
 	router.HandleFunc("/api", api.RequestHandler)
 	router.HandleFunc("/api/{key}", api.RequestHandler)
+	router.HandleFunc("/auth", auth.RequestHandler)
 	router.HandleFunc("/logs", logs.RequestHandler)
 	http.Handle("/", router)
 

@@ -1,13 +1,13 @@
 package api
 
 import (
-	"net/http"
 	"encoding/json"
+	"net/http"
 )
 
 type GenericResponse struct {
-	Path 	string
-	Data 	[]string
+	Path string
+	Data []string
 }
 
 func RawGet(w http.ResponseWriter, r *http.Request) []byte {
@@ -16,6 +16,6 @@ func RawGet(w http.ResponseWriter, r *http.Request) []byte {
 	returnData.Path = r.URL.Path
 	returnData.Data = append(returnData.Data, "needs to be worked on to echo headers?")
 
-	data,_ := json.MarshalIndent(returnData, "", "    ")
+	data, _ := json.MarshalIndent(returnData, "", "    ")
 	return data
 }

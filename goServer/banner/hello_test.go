@@ -13,6 +13,6 @@ func TestHello(t *testing.T) {
 	expected += " \\__, |\\___/____/ \\___|_|    \\_/ \\___|_|   \n"
 	expected += " |___/\n"
 	if returnValue := Hello(); returnValue != expected {
-		t.Error("Hello() = "+returnValue+" , Needed = '"+expected+"'\n")
+		t.Error("Hello() = " + returnValue + " , Needed = '" + expected + "'\n")
 	}
 }

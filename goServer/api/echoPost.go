@@ -1,26 +1,26 @@
 package api
 
 import (
-	"net/http"
-	"io/ioutil"
 	"encoding/json"
+	"io/ioutil"
+	"net/http"
 )
 
 type Response struct {
-	Path 	string
-	Data 	map[string]interface{}
+	Path string
+	Data map[string]interface{}
 }
 
 type ResponseError struct {
-	Path 	string
-	Data 	string
+	Path string
+	Data string
 }
 
 func EchoPost(w http.ResponseWriter, r *http.Request) []byte {
 	var returnData Response
 	var data []byte
 
-	body,_ := ioutil.ReadAll(r.Body)
+	body, _ := ioutil.ReadAll(r.Body)
 	var checker map[string]interface{}
 	if json.Unmarshal([]byte(body), &checker) == nil {
 		var dat map[string]interface{}
@@ -28,14 +28,14 @@ func EchoPost(w http.ResponseWriter, r *http.Request) []byte {
 		returnData.Data = dat
 		returnData.Path = r.URL.Path
 
-		data,_ = json.MarshalIndent(returnData, "", "    ")
+		data, _ = json.MarshalIndent(returnData, "", "    ")
 	} else {
 		message := "This is not a json..."
 		var errorData ResponseError
 		errorData.Data = message
 		errorData.Path = r.URL.Path
-		
-		data,_ = json.MarshalIndent(errorData, "", "    ")
+
+		data, _ = json.MarshalIndent(errorData, "", "    ")
 	}
 
 	return data
