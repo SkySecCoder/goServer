@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func GetToken(w http.ResponseWriter, r *http.Request) []byte {
+func GetToken(r *http.Request) []byte {
 	log.Info("[+] " + r.Method + " Request from " + r.RemoteAddr + " at : " + r.URL.Path)
 
 	var mySigningKey = []byte("#REDACTED")

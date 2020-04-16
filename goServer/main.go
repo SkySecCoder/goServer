@@ -55,7 +55,8 @@ func main() {
 	router.HandleFunc("/", base.Base)
 	router.HandleFunc("/api", api.RequestHandler)
 	router.HandleFunc("/api/{key}", api.RequestHandler)
-	router.HandleFunc("/auth", auth.RequestHandler)
+	router.HandleFunc("/auth", auth.Auth).Methods("POST")
+	router.HandleFunc("/checkToken", auth.AuthTokenValidityCheck)
 	router.HandleFunc("/logs", logs.RequestHandler)
 	http.Handle("/", router)
 
