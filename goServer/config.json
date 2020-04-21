@@ -1,0 +1,7 @@
+{
+	"database": {
+		"type": "",
+		"url": ""
+	},
+	"secureTransportProtocol": true
+}
