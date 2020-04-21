@@ -25,6 +25,8 @@ func RequestHandler(w http.ResponseWriter, r *http.Request) {
 		message := map[string]string{"Error": "405 " + r.Method + " is not allowed on " + path + " ..."}
 		response, _ = json.MarshalIndent(message, "", "    ")
 	}
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET,POST,OPTIONS,DELETE,PUT")
 
 	w.Write(response)
 }
