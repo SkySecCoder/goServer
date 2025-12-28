@@ -12,11 +12,18 @@
 *.out
 
 # Dependency directories (remove the comment below to include it)
-# vendor/
+pkg
 
 # Mac specific
 **/.DS_STORE
 .DS_STORE
+
+# go mod and sum
+*/go.mod
+*/go.sum
+
+# log file
+*.log
 
 # Ignore certificate folder
 */tls/*

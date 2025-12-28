@@ -78,7 +78,16 @@ func main() {
 		IdleTimeout:  120 * time.Second,
 		TLSNextProto: make(map[string]func(*http.Server, *tls.Conn, http.Handler), 0),
 	}
-	if err := srv.ListenAndServeTLS("./tls/tls.crt", "./tls/tls.key"); err != nil {
-		panic(err)
+	secureTransportProtocol := true
+	if secureTransportProtocol == false {
+		log.Info("[🚨] Running server in insecure mode...")
+		if err := http.ListenAndServe(":8080", nil); err != nil {
+			panic(err)
+		}
+	} else if secureTransportProtocol == true {
+		log.Info("[🔒] Server running on secure mode...")
+		if err := srv.ListenAndServeTLS("./tls/tls.crt", "./tls/tls.key"); err != nil {
+			panic(err)
+		}
 	}
 }
